@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar produtos - CRUD</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <h1>Edite o produto (ID: <%= id %>):</h1>
+    <form action="/editarpedidos/<%= id %>" id="editarPedido" method="POST">
+      <label for="id_usuario">Atribua um usuário:</label>
+      <select name="id_usuario" form="editarPedido">
+        <% users.forEach(function(user) { %>
+        <option value="<%= user.id %>" data-user-id="<%= user.id %>">
+          <%= user.id %> - <%= user.nome %>
+        </option>
+        <% }); %>
+      </select>
+
+      <label for="valor_total">
+        Valor total:
+        <input name="valor_total" type="number" required />
+      </label>
+
+      <label for="data_pedido">
+        Data do pedido:
+        <input name="data_pedido" type="date" required />
+      </label>
+
+      <input type="submit" value="Editar" />
+    </form>
+  </body>
+</html>

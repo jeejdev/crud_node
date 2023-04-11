@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listar produtos - CRUD</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <h1>Usuários:</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuário responsável (ID)</th>
+          <th>Valor Total</th>
+          <th>Data do Pedido</th>
+          <th>Editar</th>
+          <th>Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(function(order) { %>
+        <tr>
+          <td><%= order.id_pedido %></td>
+          <td><%= order.id_usuario %></td>
+          <td><%= order.valor_total %></td>
+          <td><%= order.data_pedido %></td>
+          <td><a href="/editarpedidos/<%= order.id_pedido %>">Editar</a></td>
+          <td><a href="/pedidos/<%= order.id_pedido %>">Excluir</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

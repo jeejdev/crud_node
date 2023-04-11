@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar usuários - CRUD</title>
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+    <h1>Cadastre um usuário:</h1>
+    <form action='/' method='POST'>
+        <label for="nome"> Nome:
+            <input name="nome" type="text" maxlength="32" required>
+        </label>
+
+        <label for="idade"> Idade:
+            <input name="idade" type="number" min="1" max="150" required>
+        </label>
+
+        <label for="uf"> UF:
+            <input name="uf" type="text" maxlength="2" required>
+        </label>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>
